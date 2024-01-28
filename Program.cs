@@ -4,18 +4,51 @@
 
 
 BankCard card = new BankCard("1234567891234567", "Jony Bravo", "345");
+BankCard card2 = new BankCard("2323232323232323","Valera","444");
 
-card.Print();
+card.AddBalance(30);
+
+
+
+
+
+
+
+
+List<BankCard> bankCards = new List<BankCard>();
+
+bankCards.Add(card);
+bankCards.Add(card2);
+
+
+for (int i = 0; i < bankCards.Count; i++)
+{
+    bankCards[i].Print();
+}
+
+
+
+void Serch(string num)
+{
+
+}
+
+class Bank
+{
+
+
+}
+
 
 
 class BankCard
 {
-    public BankCard (string CardNumber, string Name, string CVV)
+    public BankCard (string cardNumber, string name, string cvv)
     {
-        CardNumber = CardNumber;
-        Name = Name;
-        CVV = CVV;
-        balance = 0;
+        CardNumber = cardNumber;
+        Name = name;
+        CVV = cvv;
+        BALANCE = 0;
     
     }
 
@@ -37,6 +70,7 @@ class BankCard
             }
         }
     }
+
     //public BankCard(string CardNumber)
     //{
     //    cardNumber = CardNumber;
@@ -65,17 +99,20 @@ class BankCard
     private float BALANCE;
 
 
-    public float balance { get { return BALANCE; }
-        set {
-            BALANCE += balance;
+    public void AddBalance(float value)
+    {
+        this.BALANCE += value;
         
-        } }
+    }
    
    
 
     public void Print()
     {
-        Console.WriteLine(CardNumber);
+        Console.WriteLine($"NUMCARD: {CardNumber} " +
+            $" NAME: {Name} " +
+            $" CVV: {CVV} " +
+            $" BALANCE: {BALANCE}");
     }
 }
 
