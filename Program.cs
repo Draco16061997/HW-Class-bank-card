@@ -12,29 +12,58 @@ card.AddBalance(30);
 
 
 
+Bank Privat24 = new Bank();
+
+
+Privat24.Add(card);
+Privat24.Add(card2);
+
+Privat24.Serch("2323232323232323");
+
+//Privat24.GetList();
 
 
 
-List<BankCard> bankCards = new List<BankCard>();
-
-bankCards.Add(card);
-bankCards.Add(card2);
 
 
-for (int i = 0; i < bankCards.Count; i++)
-{
-    bankCards[i].Print();
-}
-
-
-
-void Serch(string num)
-{
-
-}
 
 class Bank
 {
+    private List<BankCard> bankCards = new List<BankCard>();
+
+    public void Add(BankCard card) {  bankCards.Add(card); }
+
+    public void GetList() 
+    {
+    for (int i = 0;i < bankCards.Count; i++) 
+        {
+            Console.WriteLine($"=========== CARD# {i}==============");
+            bankCards[i].Print();
+            Console.WriteLine("====================================");
+        }
+    }
+
+    public void Serch(string num) 
+    {
+        int k = 0 ;
+        
+        for (int i = 0; i < bankCards.Count; i++) 
+        {
+        if (bankCards[i].cardNumber == num)
+            {
+                Console.WriteLine($"=========== CARD# {i}==============");
+                bankCards[i].Print();
+                Console.WriteLine("====================================");
+                k += 1;
+            }
+        
+        }
+
+        if (k == 0) { Console.WriteLine("Card is not diferend "); }
+        
+    
+    }
+
 
 
 }
